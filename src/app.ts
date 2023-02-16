@@ -12,7 +12,7 @@ app
   .use(cors())
   .use(express.json())
   .get("/health", (_req, res) => res.send("server running OK"))
-  .use("/", usersRouter)
+  .use("/user", usersRouter)
 
 export function init(): Promise<Express> {
     connectDB()

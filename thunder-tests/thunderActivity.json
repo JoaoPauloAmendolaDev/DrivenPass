@@ -8,12 +8,107 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-02-16T17:15:45.440Z",
-    "modified": "2023-02-16T17:25:36.617Z",
+    "modified": "2023-02-16T17:43:09.477Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\" : \"joao@12345.com\",\n  \"passwrd\" : \"12345678910\"\n}",
+      "raw": "{\n  \"email\" : \"joao@1234566.com\",\n  \"password\" : \"12345678910\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c4b2cb99-7930-481b-a9f9-b41bdf79b1a4",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:4000/user",
+    "url": "http://localhost:4000/user",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-02-16T17:47:36.359Z",
+    "modified": "2023-02-16T17:51:50.400Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\" : \"joao@12345667.com\",\n  \"password\" : \"12345678910\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "153484c1-97cb-4433-aab5-f53d6b94f159",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:4000/login",
+    "url": "http://localhost:4000/login",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-02-16T17:51:17.730Z",
+    "modified": "2023-02-16T17:51:17.730Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\" : \"joao@1234566.com\",\n  \"password\" : \"12345678910\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d4daa01f-d1aa-4006-a4fc-95c539d684ed",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:4000/login/",
+    "url": "http://localhost:4000/login/",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-02-16T17:51:21.798Z",
+    "modified": "2023-02-16T17:51:21.798Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\" : \"joao@1234566.com\",\n  \"password\" : \"12345678910\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "6daf8e28-7f52-47d5-abff-d7ea43dc81ac",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:4000/s",
+    "url": "http://localhost:4000/s",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-02-16T17:51:42.764Z",
+    "modified": "2023-02-16T17:51:42.764Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\" : \"joao@1234566.com\",\n  \"password\" : \"12345678910\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "b8cc3f10-6f31-40e7-a018-b36b41ae9e50",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:4000/user/login",
+    "url": "http://localhost:4000/user/login",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-02-16T18:22:33.599Z",
+    "modified": "2023-02-16T19:32:00.397Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\" : \"joao@12345667.com\",\n  \"password\" : \"12345678910\"\n}",
       "form": []
     },
     "tests": []
