@@ -1,8 +1,8 @@
 import { connectDB, disconnectDB, loadEnv } from "@/config";
 import express, {Express} from "express";
 import cors from "cors";
-import usersRouter from "./routes/user-routes";
-
+import usersRouter from "@/routes/user-routes";
+import credentialsRouter from "@/routes/credentials-routes"
 
 loadEnv()
 
@@ -13,6 +13,7 @@ app
   .use(express.json())
   .get("/health", (_req, res) => res.send("server running OK"))
   .use("/user", usersRouter)
+  .use("/credentials", credentialsRouter)
 
 export function init(): Promise<Express> {
     connectDB()

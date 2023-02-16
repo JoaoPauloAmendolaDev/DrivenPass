@@ -14,13 +14,16 @@ export default function(req: AuthenticatedRequest, res: Response, next: NextFunc
     const bearer_token = authorization.split(" ");
     if (bearer_token.length !== 2 || bearer_token[0] !== "Bearer") throw unauthorizedError();
 
-    const { userEmail } = jwt.verify(
+
+    const userEmailObject = jwt.verify(
         bearer_token[1],
-        process.env.JWT_SECRET,
-    ) as JWTPayload;
+        process.env.JWT_SECRET
+    ) as JWTPayload
 
-    req.userEmail = userEmail
 
+    if(!userEmailObject) throw unauthorizedError()
+    const userEmail = userEmailObject.userEmail
+    console.log(userEmail)
     next()
 }
 

@@ -33,16 +33,22 @@ async function loginUser(userData: CreateUserType){
     const payload = {
         email: verify.email
     }
-
+    console.log(payload)
     const jwtToken = jwt.sign(payload, secret)
     return {jwtToken, payload}
+}
+
+async function getUserIdByEmail(userEmail: string){
+    const user = await userRepository.getUserIdByEmail(userEmail)
+    return user.id
 }
 
 
 const userService = {
     createUser,
     verifyIfExistAnotherEmail,
-    loginUser
+    loginUser,
+    getUserIdByEmail
 }
 
 export default userService

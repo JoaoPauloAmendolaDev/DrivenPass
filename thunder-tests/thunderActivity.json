@@ -23,16 +23,21 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:4000/user",
-    "url": "http://localhost:4000/user",
+    "url": "http://localhost:4000/credentials",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-02-16T17:47:36.359Z",
-    "modified": "2023-02-16T17:51:50.400Z",
-    "headers": [],
+    "modified": "2023-02-16T22:08:02.175Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvYW9AZW1haWwuY29tIiwiaWF0IjoxNjc2NTgzNTIzfQ.zRVl-9rfGoEC2Bc0XFt7xekSRHcOJn1AH8IJ22j4gwQ"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\" : \"joao@12345667.com\",\n  \"password\" : \"12345678910\"\n}",
+      "raw": "{\n  \"title\" : \"joao@email.com\",\n  \"url\" : \"google.com\",\n  \"username\" : \"joao\",\n  \"password\" : \"joao123456\"\n}",
       "form": []
     },
     "tests": []

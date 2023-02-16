@@ -6,11 +6,7 @@ export type RequestError = {
   message: string,
 };
 
-export 
-
-
 export type ApplicationError = {
     name: string;
     message: string;
   };
-  

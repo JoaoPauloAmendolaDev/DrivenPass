@@ -15,9 +15,18 @@ async function createUser(userData: CreateUserType){
     })
 }
 
+async function getUserIdByEmail(userEmail: string){
+    return await prisma.user.findFirst({
+        where:{
+            email : userEmail
+        }
+    })
+}
+
 const userRepository = {
     findUserByEmail,
-    createUser
+    createUser,
+    getUserIdByEmail
 }
 
 export default userRepository
