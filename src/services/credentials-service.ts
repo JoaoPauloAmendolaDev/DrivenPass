@@ -1,4 +1,4 @@
-import { conflictError } from "@/errors";
+import { conflictError, notFoundError, unauthorizedError } from "@/errors";
 import credentialRepository from "@/repositories/credentials-repository";
 import { Credential } from "@prisma/client";
 import bcrypt from "bcrypt"
@@ -30,12 +30,23 @@ async function getAllCredentials(){
     return findAllCredentials
 }
 
+async function verifyIfCredentialIdIsFromUser(userId: number, credentialId: number){
+    const findCredentialById = await credentialRepository.findCredentialById(credentialId)
+    if(!findCredentialById) throw notFoundError()
+
+    const verifyIfCredentialIdIsFromUser = await credentialRepository.verifyIfCredentialIdIsFromUser(userId, credentialId)
+    if(!verifyIfCredentialIdIsFromUser) throw unauthorizedError()
+
+    const deleteCredential = await credentialRepository.deleteCredential(credentialId)
+    return deleteCredential
+}
 
 
 const credentialService = {
     createCredential,
     getUserCredentials,
-    getAllCredentials
+    getAllCredentials,
+    verifyIfCredentialIdIsFromUser
 }
 
 export type createCredentialType = Pick<Credential, "title" | "url" | "userId" | "username" | "password">;

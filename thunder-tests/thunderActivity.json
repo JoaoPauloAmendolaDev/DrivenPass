@@ -104,11 +104,11 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:4000/user/login",
-    "url": "http://localhost:4000/credentials/6",
-    "method": "GET",
+    "url": "http://localhost:4000/credentials/9",
+    "method": "DELETE",
     "sortNum": 0,
     "created": "2023-02-16T18:22:33.599Z",
-    "modified": "2023-02-17T02:24:58.242Z",
+    "modified": "2023-02-17T02:58:31.708Z",
     "headers": [
       {
         "name": "Authorization",
