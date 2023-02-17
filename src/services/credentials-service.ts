@@ -12,7 +12,7 @@ async function createCredential(credentialData: createCredentialType){
     credentialData.password = await bcrypt.hash(credentialData.password, 10)
 
     const createdCredential = await credentialRepository.createCredential(credentialData)
-    return createCredential
+    return createdCredential
 }
 
 

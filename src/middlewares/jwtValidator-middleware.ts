@@ -4,7 +4,7 @@ import { NextFunction, Request, Response } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
 
 type JWTPayload = {
-    userEmail: string;
+    email: string;
 };
 
 export default function(req: AuthenticatedRequest, res: Response, next: NextFunction) {
@@ -19,11 +19,9 @@ export default function(req: AuthenticatedRequest, res: Response, next: NextFunc
         bearer_token[1],
         process.env.JWT_SECRET
     ) as JWTPayload
-
-
     if(!userEmailObject) throw unauthorizedError()
-    const userEmail = userEmailObject.userEmail
-    console.log(userEmail)
+    
+    req.email = userEmailObject.email
     next()
 }
 

@@ -27,7 +27,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-02-16T17:47:36.359Z",
-    "modified": "2023-02-16T22:08:02.175Z",
+    "modified": "2023-02-16T22:29:48.807Z",
     "headers": [
       {
         "name": "Authorization",
@@ -37,7 +37,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"title\" : \"joao@email.com\",\n  \"url\" : \"google.com\",\n  \"username\" : \"joao\",\n  \"password\" : \"joao123456\"\n}",
+      "raw": "{\n  \"title\" : \"segundo titulo2345\",\n  \"url\" : \"google.com\",\n  \"username\" : \"joao\",\n  \"password\" : \"joao123456\"\n}",
       "form": []
     },
     "tests": []
@@ -104,16 +104,21 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:4000/user/login",
-    "url": "http://localhost:4000/user/login",
+    "url": "http://localhost:4000/credentials",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-02-16T18:22:33.599Z",
-    "modified": "2023-02-16T19:32:00.397Z",
-    "headers": [],
+    "modified": "2023-02-17T01:46:07.901Z",
+    "headers": [
+      {
+        "name": "Authorization",
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvYW9AMTIzNDU2NjcuY29tIiwiaWF0IjoxNjc2NTk4MjYzfQ.w7KbSXY0Qjd2UMi5Xt79bceqGf3CVwEvxcKXQQDj0CE"
+      }
+    ],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\" : \"joao@12345667.com\",\n  \"password\" : \"12345678910\"\n}",
+      "raw": "{\n  \"title\" : \"titulo\",\n  \"url\" : \"youtube.com\",\n  \"username\" : \"joaozin123\",\n  \"password\" : \"12345678910\"\n}",
       "form": []
     },
     "tests": []
