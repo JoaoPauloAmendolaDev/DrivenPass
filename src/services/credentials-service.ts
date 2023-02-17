@@ -15,11 +15,27 @@ async function createCredential(credentialData: createCredentialType){
     return createdCredential
 }
 
+async function getUserCredentials(userId: number){
+    console.log(userId)
+    const findAllCredentialsOfUser = await credentialRepository.findAllCredentialsOfUser(userId)
+    let newArr = []
+    for(let i = 0; i < findAllCredentialsOfUser.length; i++){
+
+    }
+    return findAllCredentialsOfUser
+}
+
+async function getAllCredentials(){
+    const findAllCredentials = await credentialRepository.getAllCredentials()
+    return findAllCredentials
+}
 
 
 
 const credentialService = {
-    createCredential
+    createCredential,
+    getUserCredentials,
+    getAllCredentials
 }
 
 export type createCredentialType = Pick<Credential, "title" | "url" | "userId" | "username" | "password">;

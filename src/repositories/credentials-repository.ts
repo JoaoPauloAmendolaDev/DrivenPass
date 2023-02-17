@@ -16,9 +16,23 @@ async function findTitle(title: string, userId: number){
     })
 }
 
+async function findAllCredentialsOfUser(userId: number){
+    return await prisma.credential.findMany({
+        where: {
+            userId
+        }
+    })
+}
+
+async function getAllCredentials(){
+    return await prisma.credential.findMany()
+}
+
 const credentialRepository = {
     createCredential,
-    findTitle
+    findTitle,
+    findAllCredentialsOfUser,
+    getAllCredentials
 }
 
 export default credentialRepository

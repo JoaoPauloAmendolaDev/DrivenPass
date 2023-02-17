@@ -23,3 +23,24 @@ export async function createCredentials(req: AuthenticatedRequest, res: Response
         return res.sendStatus(httpStatus.NOT_FOUND)
     }
 }
+
+export async function findCredentials(req: AuthenticatedRequest, res:Response){
+    const userEmail = req.email
+    const credentialId = Number(req.params.credentialId)
+    
+    try {
+        const userExist = await userService.getUserIdByEmail(userEmail)
+
+        if(userExist){
+            const getUserCredentials = await credentialService.getUserCredentials(credentialId)
+            return res.status(httpStatus.OK).send(getUserCredentials)
+        } else{
+            const getAllCredentials = await credentialService.getAllCredentials()
+            return res.status(httpStatus.OK).send(getAllCredentials)
+        }
+
+    } catch (error) {
+        console.log(error)
+        return res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR)
+    }
+}
