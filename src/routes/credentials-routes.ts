@@ -4,13 +4,13 @@ import jwtValidatorMiddleware from "@/middlewares/jwtValidator-middleware";
 import { credentialsSchema } from "@/schemas";
 import { Router } from "express";
 
-const usersRouter = Router();
+const credentialsRouter = Router();
 
-usersRouter
+credentialsRouter
     .all("/*", jwtValidatorMiddleware)
-    .get("/:credentialId", findCredentials)
+    .get("/:credentialId?", findCredentials)
     .post("/", validateBody(credentialsSchema), createCredentials)
     .delete("/:credentialId", deleteCredentials)
 
 
-export default usersRouter
+export default credentialsRouter

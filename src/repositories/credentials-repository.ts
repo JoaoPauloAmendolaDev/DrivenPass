@@ -16,16 +16,21 @@ async function findTitle(title: string, userId: number){
     })
 }
 
-async function findAllCredentialsOfUser(userId: number){
-    return await prisma.credential.findMany({
+async function findAllCredentialsOfUser(userId: number, credentialId: number){
+    return await prisma.credential.findFirst({
         where: {
+            id: credentialId,
             userId
         }
     })
 }
 
-async function getAllCredentials(){
-    return await prisma.credential.findMany()
+async function getAllCredentials(userId: number){
+    return await prisma.credential.findMany({
+        where: {
+            userId
+        }
+    })
 }
 
 async function verifyIfCredentialIdIsFromUser(userId: number, credentialId: number){

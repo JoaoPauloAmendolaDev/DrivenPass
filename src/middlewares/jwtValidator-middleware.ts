@@ -14,6 +14,7 @@ export default function(req: AuthenticatedRequest, res: Response, next: NextFunc
     const bearer_token = authorization.split(" ");
     if (bearer_token.length !== 2 || bearer_token[0] !== "Bearer") throw unauthorizedError();
 
+    console.log(bearer_token)
 
     const userEmailObject = jwt.verify(
         bearer_token[1],

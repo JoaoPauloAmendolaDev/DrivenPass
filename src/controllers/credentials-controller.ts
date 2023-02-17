@@ -27,20 +27,21 @@ export async function createCredentials(req: AuthenticatedRequest, res: Response
 export async function findCredentials(req: AuthenticatedRequest, res:Response){
     const userEmail = req.email
     const credentialId = Number(req.params.credentialId)
-    if(!createCredentials) return res.sendStatus(httpStatus.BAD_REQUEST)
     
     try {
         const userExist = await userService.getUserIdByEmail(userEmail)
 
-        if(userExist){
-            const getUserCredentials = await credentialService.getUserCredentials(credentialId)
+        if(credentialId){
+            const getUserCredentials = await credentialService.getUserCredentials(userExist, credentialId)
             return res.status(httpStatus.OK).send(getUserCredentials)
         } else{
-            const getAllCredentials = await credentialService.getAllCredentials()
+            const getAllCredentials = await credentialService.getAllCredentials(userExist)
             return res.status(httpStatus.OK).send(getAllCredentials)
         }
 
     } catch (error) {
+        if (error.name === 'UnauthorizedError') return res.sendStatus(httpStatus.UNAUTHORIZED)
+        if (error.name === 'NotFoundError')return res.sendStatus(httpStatus.NOT_FOUND)
         return res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR)
     }
 }

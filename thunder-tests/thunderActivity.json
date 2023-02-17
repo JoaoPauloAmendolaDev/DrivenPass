@@ -23,21 +23,21 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:4000/user",
-    "url": "http://localhost:4000/credentials",
-    "method": "POST",
+    "url": "http://localhost:4000/credentials/",
+    "method": "GET",
     "sortNum": 0,
     "created": "2023-02-16T17:47:36.359Z",
-    "modified": "2023-02-16T22:29:48.807Z",
+    "modified": "2023-02-17T20:34:11.351Z",
     "headers": [
       {
         "name": "Authorization",
-        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvYW9AZW1haWwuY29tIiwiaWF0IjoxNjc2NTgzNTIzfQ.zRVl-9rfGoEC2Bc0XFt7xekSRHcOJn1AH8IJ22j4gwQ"
+        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE2NzY2NjQ1Mjl9.LkuUFDM1zYG5Pdgz6raE2cxmqD3JpIJ3eN_6fPj2c7s"
       }
     ],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"title\" : \"segundo titulo2345\",\n  \"url\" : \"google.com\",\n  \"username\" : \"joao\",\n  \"password\" : \"joao123456\"\n}",
+      "raw": "{\n  \"title\" : \"titulo23455\",\n  \"url\" : \"teste\",\n  \"username\" : \"123123\",\n  \"password\" : \"senha de teste\"\n}",
       "form": []
     },
     "tests": []
