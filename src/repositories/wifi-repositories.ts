@@ -25,10 +25,19 @@ async function findAllWifi(userId: number){
     })
 }
 
+async function deleteWifi(wifiId: number){
+    return await prisma.network.delete({
+        where: {
+            id: wifiId
+        }
+    })
+}
+
 const wifiRepositories = {
     findWifi,
     findUniqueWifi,
-    findAllWifi
+    findAllWifi,
+    deleteWifi
 }
 
 export default wifiRepositories
