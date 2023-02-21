@@ -1,6 +1,6 @@
 import { AuthenticatedRequest } from "@/middlewares/jwtValidator-middleware";
 import userService from "@/services/user-service";
-import wifiService from "@/services/wifi-service";
+import wifiService, { createWifiType } from "@/services/wifi-service";
 import { Response } from "express";
 import httpStatus from "http-status";
 
@@ -37,6 +37,24 @@ export async function deleteWifi(req: AuthenticatedRequest, res: Response){
     } catch (error) {
         if (error.name === 'UnauthorizedError') return res.sendStatus(httpStatus.UNAUTHORIZED)
         if (error.name === 'NotFoundError')return res.sendStatus(httpStatus.NOT_FOUND)
+        return res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR)
+    }
+}
+
+export async function createWifi(req: AuthenticatedRequest, res: Response){
+    const userEmail = req.email
+
+    try {
+        const findUserid = await userService.getUserIdByEmail(userEmail)
+        
+        const wifiNewData: createWifiType = {
+            ...req.body,
+            userId: findUserid
+        }
+        
+        const createWifi = await wifiService.createWifi(wifiNewData)
+        return res.sendStatus(httpStatus.CREATED)
+    } catch (error) {
         return res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR)
     }
 }

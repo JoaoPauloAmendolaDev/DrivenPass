@@ -1,6 +1,9 @@
 import { notFoundError, unauthorizedError } from "@/errors"
 import wifiRepositories from "@/repositories/wifi-repositories"
+import { Network } from "@prisma/client"
+import Cryptr from "cryptr"
 
+const cryptr = new Cryptr('secretKey')
 
 async function findWifi(wifiId: number, userId: number){
     const verifyIfWifiExist = await wifiRepositories.findUniqueWifi(wifiId)
@@ -26,10 +29,21 @@ async function deleteWifi(wifiId: number, userId: number){
     await wifiRepositories.deleteWifi(wifiId)
 }
 
+async function createWifi(wifiData: createWifiType ){
+
+    wifiData.password = cryptr.encrypt(wifiData.password)
+
+    const createdWifi = await wifiRepositories.createWifi(wifiData)
+    return createdWifi
+}
+
 const wifiService = {
     findWifi,
     findAllWifi,
-    deleteWifi
+    deleteWifi,
+    createWifi
 }
+
+export type createWifiType = Pick<Network, 'title' | 'network' | 'password' | 'userId' >
 
 export default wifiService

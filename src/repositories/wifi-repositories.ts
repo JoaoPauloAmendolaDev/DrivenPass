@@ -1,4 +1,5 @@
 import { prisma } from "@/config"
+import { createWifiType } from "@/services"
 
 async function findWifi(wifiId : number, userId: number){
     return await prisma.network.findFirst({
@@ -33,11 +34,18 @@ async function deleteWifi(wifiId: number){
     })
 }
 
+async function createWifi(wifiData: createWifiType){
+    return await prisma.network.create({
+        data: wifiData
+    })
+}
+
 const wifiRepositories = {
     findWifi,
     findUniqueWifi,
     findAllWifi,
-    deleteWifi
+    deleteWifi,
+    createWifi
 }
 
 export default wifiRepositories
