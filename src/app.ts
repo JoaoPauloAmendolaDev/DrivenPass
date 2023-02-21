@@ -3,6 +3,7 @@ import express, {Express} from "express";
 import cors from "cors";
 import usersRouter from "@/routes/user-routes";
 import credentialsRouter from "@/routes/credentials-routes"
+import wifiRouter from "@/routes/wifi-routes";
 
 loadEnv()
 
@@ -14,6 +15,7 @@ app
   .get("/health", (_req, res) => res.send("server running OK"))
   .use("/user", usersRouter)
   .use("/credentials", credentialsRouter)
+  .use("/wifi", wifiRouter)
 
 export function init(): Promise<Express> {
     connectDB()
