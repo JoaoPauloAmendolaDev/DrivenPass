@@ -23,11 +23,11 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:4000/user",
-    "url": "http://localhost:4000/credentials/",
-    "method": "GET",
+    "url": "http://localhost:4000/user/",
+    "method": "POST",
     "sortNum": 0,
     "created": "2023-02-16T17:47:36.359Z",
-    "modified": "2023-02-17T20:34:11.351Z",
+    "modified": "2023-02-22T03:34:28.108Z",
     "headers": [
       {
         "name": "Authorization",
