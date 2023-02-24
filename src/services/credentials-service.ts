@@ -9,7 +9,7 @@ const cryptr = new Cryptr('secretKey')
 async function createCredential(credentialData: createCredentialType){
     
     const verifyUniqueTitle = await credentialRepository.findTitle(credentialData.title, credentialData.userId)
-    
+    console.log(verifyUniqueTitle, 'AQUI SERVICE LOUCURAAAAA', credentialData.userId)
     if(verifyUniqueTitle) throw conflictError('title not unique')
 
     credentialData.password = cryptr.encrypt(credentialData.password)
@@ -25,7 +25,7 @@ async function getUserCredentials(userId: number, credentialId: number){
     const verifyIfCredentialIdIsFromUser = await credentialRepository.verifyIfCredentialIdIsFromUser(userId, credentialId)
     if(!verifyIfCredentialIdIsFromUser) throw unauthorizedError()
 
-    const findCredentialsOfUser = await credentialRepository.findAllCredentialsOfUser(userId, credentialId)
+    const findCredentialsOfUser = await credentialRepository.findCredentialsOfUser(userId, credentialId)
     findCredentialsOfUser.password = cryptr.decrypt(findCredentialsOfUser.password)
 
     return findCredentialsOfUser

@@ -17,6 +17,7 @@ async function findWifi(wifiId: number, userId: number){
 
 async function findAllWifi(userId: number){
     const allWifi = await wifiRepositories.findAllWifi(userId)
+    return allWifi
 }
 
 async function deleteWifi(wifiId: number, userId: number){

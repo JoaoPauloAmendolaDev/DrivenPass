@@ -27,11 +27,12 @@ export async function findWifi(req: AuthenticatedRequest, res: Response){
 
 export async function deleteWifi(req: AuthenticatedRequest, res: Response){
     const userEmail = req.email
-    const wifiId = Number(req.params.wifiId)
+    const wifiId: undefined | Number = Number(req.params.wifiId)
+    if(!wifiId) return res.sendStatus(httpStatus.BAD_REQUEST)
 
     try {
         const findUserid = await userService.getUserIdByEmail(userEmail)
-        const deleteWifi = await wifiService.deleteWifi(wifiId,findUserid)
+        const deleteWifi = await wifiService.deleteWifi(wifiId as number,findUserid)
     
         return res.sendStatus(httpStatus.OK)    
     } catch (error) {

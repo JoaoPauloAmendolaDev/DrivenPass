@@ -8,9 +8,9 @@ const wifiRouter = Router();
 
 wifiRouter
     .all("/*", jwtValidatorMiddleware)
-    .get("/:credentialId?", findWifi)
+    .get("/:wifiId?", findWifi)
     .post("/", validateBody(wifiSchema), createWifi)
-    .delete("/:credentialId", deleteWifi)
+    .delete("/:wifiId", deleteWifi)
 
 
 export default wifiRouter

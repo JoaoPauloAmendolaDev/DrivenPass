@@ -4,9 +4,9 @@ import { createUser } from "./factories/user-factory";
 import { User } from "@prisma/client";
 
 export async function cleanDb() {
-  await prisma.user.deleteMany({})
   await prisma.network.deleteMany({})
   await prisma.credential.deleteMany({}) 
+  await prisma.user.deleteMany({})
   }
 
 

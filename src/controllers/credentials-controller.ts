@@ -18,7 +18,6 @@ export async function createCredentials(req: AuthenticatedRequest, res: Response
         
         return res.sendStatus(httpStatus.CREATED)
     } catch (error) {
-        console.log(error)
         if(error.name === "ConflictError") return res.sendStatus(httpStatus.CONFLICT)
         return res.sendStatus(httpStatus.NOT_FOUND)
     }
@@ -58,7 +57,6 @@ export async function deleteCredentials(req:AuthenticatedRequest, res: Response)
 
         return res.sendStatus(httpStatus.OK)
     } catch (error) {
-        console.log(error)
         if (error.name === 'UnauthorizedError') return res.sendStatus(httpStatus.UNAUTHORIZED)
         if (error.name === 'NotFoundError')return res.sendStatus(httpStatus.NOT_FOUND)
         return res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR)

@@ -10,13 +10,15 @@ async function createCredential(credentialData: createCredentialType){
 async function findTitle(title: string, userId: number){
     return await prisma.credential.findFirst({
         where:{
-            title,
-            userId
+            AND: {
+                title,
+                userId
+            }
         }
     })
 }
 
-async function findAllCredentialsOfUser(userId: number, credentialId: number){
+async function findCredentialsOfUser(userId: number, credentialId: number){
     return await prisma.credential.findFirst({
         where: {
             id: credentialId,
@@ -61,7 +63,7 @@ async function deleteCredential(credentialId: number){
 const credentialRepository = {
     createCredential,
     findTitle,
-    findAllCredentialsOfUser,
+    findCredentialsOfUser,
     getAllCredentials,
     verifyIfCredentialIdIsFromUser,
     findCredentialById,
